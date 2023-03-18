@@ -62,15 +62,21 @@ const store: NextPage<MyPageProps> = ({ product }) => {
               </div>
               <div className="flex justify-between">
                 <div className="text-gray-900 font-bold text-lg">${price}</div>
-                {quantity === 2 ? (
+                {quantity === 0 ? (
                   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Add to cart
                   </button>
-                ) : <div className="flex bg-blue-500 text-white items-center px-3 py-2 space-x-2 ">
+                ) :
+                <div className="space-y-2">
+
+                 <div className="flex bg-blue-500 rounded-xl text-white items-center px-3 py-2 space-x-2 ">
                     <AiFillMinusCircle size={25} className='cursor-pointer' />
                     {quantity}
                     <AiFillPlusCircle size={25} className='cursor-pointer'/>
-                    </div>}
+                    </div>
+                    <button className="text-white bg-blue-500 ml-2 p-3 rounded-full">Remove</button>
+                    </div>
+                    }
               </div>
             </div>
           </div>
