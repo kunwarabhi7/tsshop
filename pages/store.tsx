@@ -22,7 +22,7 @@ interface MyPageProps {
 const store: NextPage<MyPageProps> = ({product}) => {
     console.log(product)
   return (
-<div className='grid grid-cols-3 gap-6'>
+<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
     {product.map(({brand,title,id,key,thumbnail,price,rating,category,description,})=>(
         <div
         key={id}
