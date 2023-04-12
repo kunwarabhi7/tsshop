@@ -3,7 +3,7 @@ import { GetServerSideProps, NextPage } from "next";
 import {AiFillMinusCircle , AiFillPlusCircle} from 'react-icons/ai'
 
 interface Product {
-  id: number;
+    id: number;
   description: string;
   price: number;
   thumbnail: string;
@@ -15,30 +15,30 @@ interface Product {
 }
 
 interface MyPageProps {
-  product: Product[];
+    product: Product[];
 }
 
 const store: NextPage<MyPageProps> = ({ product }) => {
-  const quantity = 2;
-  console.log(product);
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    const quantity = 0
+       console.log(product);
+   return (
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {product.map(
-        ({
-          brand,
-          title,
-          id,
-          key,
-          thumbnail,
-          price,
-          rating,
-          category,
-          description,
-        }) => (
-          <div
-            key={id}
-            className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col justify-between"
-          >
+          ({
+              brand,
+              title,
+              id,
+              key,
+              thumbnail,
+              price,
+              rating,
+              category,
+              description,
+            }) => (
+                <div
+                key={id}
+                className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col justify-between"
+                >
             <img
               src={thumbnail}
               alt={title}
@@ -63,18 +63,18 @@ const store: NextPage<MyPageProps> = ({ product }) => {
               <div className="flex justify-between">
                 <div className="text-gray-900 font-bold text-lg">${price}</div>
                 {quantity === 0 ? (
-                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl">
                     Add to cart
                   </button>
                 ) :
                 <div className="space-y-2">
 
-                 <div className="flex bg-blue-500 rounded-xl text-white items-center px-3 py-2 space-x-2 ">
-                    <AiFillMinusCircle size={25} className='cursor-pointer' />
+                 <div className="flex bg-blue-500 rounded-xl text-white items-center py-2 px-4 space-x-2 ">
+                    <AiFillMinusCircle  size={25} className='cursor-pointer' />
                     {quantity}
-                    <AiFillPlusCircle size={25} className='cursor-pointer'/>
+                    <AiFillPlusCircle  size={25} className='cursor-pointer'/>
                     </div>
-                    <button className="text-white bg-blue-500 ml-2 p-3 rounded-full">Remove</button>
+                    <button  className="text-white bg-red-500 ml-2 py-2 px-4 rounded-xl">Remove</button>
                     </div>
                     }
               </div>

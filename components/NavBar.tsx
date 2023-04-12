@@ -8,7 +8,7 @@ const NavBar = (props: Props) => {
     <div className='bg-white shadow-xl mb-3  p-4 flex items-center justify-between'>
         <div className='flex space-x-3 ml-2'>
             <Link href='/'>Home</Link>
-            <Link href='/'>Store</Link>
+            <Link href='/store'>Store</Link>
             <Link href='/'>About</Link>
         </div>
         <div className='relative'>
