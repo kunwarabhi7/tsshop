@@ -1,6 +1,7 @@
 import React from "react";
 import { GetServerSideProps, NextPage } from "next";
 import {AiFillMinusCircle , AiFillPlusCircle} from 'react-icons/ai'
+import { useShoppingCart } from "@/context/ShoppingCartContex";
 
 interface Product {
     id: number;
@@ -18,9 +19,10 @@ interface MyPageProps {
     product: Product[];
 }
 
-const store: NextPage<MyPageProps> = ({ product }) => {
-    const quantity = 0
-       console.log(product);
+const store = ({ product }:MyPageProps) => {
+ const {getItemQuantity,increaseCartQuantity,decreaseCartQuantity,removeFromCart} = useShoppingCart()
+   
+    const quantity =2;
    return (
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {product.map(
@@ -39,6 +41,7 @@ const store: NextPage<MyPageProps> = ({ product }) => {
                 key={id}
                 className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col justify-between"
                 >
+                  
             <img
               src={thumbnail}
               alt={title}
@@ -62,7 +65,7 @@ const store: NextPage<MyPageProps> = ({ product }) => {
               </div>
               <div className="flex justify-between">
                 <div className="text-gray-900 font-bold text-lg">${price}</div>
-                {quantity === 0 ? (
+                {quantity === 2 ? (
                   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl">
                     Add to cart
                   </button>

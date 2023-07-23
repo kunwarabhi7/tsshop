@@ -29,16 +29,48 @@ export function ShoppingCartProvider ({children}:shoppingCartProviderProps){
 return cartItems.find(item => item.id === id)?.quantity || 0
    }
   
-   function increaseCartQuantity() {}
-   function decreaseCartQuantity() {}
-   function removeFromCart() {}
+   function increaseCartQuantity(id:number) {
+    setCartItems(currItems =>{
+        if(currItems.find(item => item.id === id)==null){
+            return [...currItems, {id,quantity:1}]
+        }else{
+            return currItems.map(item =>{
+                if(item.id === id){
+                    return {...item,quantity:item.quantity+1}
+                }else{
+                    return item
+                }
+            })
+        }
+    })
+   }
+   function decreaseCartQuantity(id:number) {
+    setCartItems(currItems =>{
+        if(currItems.find(item => item.id === id)?.quantity==1){
+            return currItems.filter(item=>item.id !== id);
+        }else{
+            return currItems.map(item =>{
+                if(item.id === id){
+                    return {...item,quantity:item.quantity-1}
+                }else{
+                    return item
+                }
+            })
+        }
+    })
+   }
+   function removeFromCart(id:number) {
+    setCartItems(currItems=>{
+        return currItems.filter(item=>item.id !== id);
+    })
+   }
    return (
     
         
 
-        <shoppingCartContext.Provider value={{getItemQuantity,decreaseCartQuantity,removeFromCart,increaseCartQuantity() {
+        <shoppingCartContext.Provider value={{getItemQuantity,increaseCartQuantity, decreaseCartQuantity,removeFromCart }}>
             
-        },}}>
+
     {children}
 </shoppingCartContext.Provider>
     )
