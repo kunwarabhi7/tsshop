@@ -4,7 +4,7 @@ type Props = {}
 
 const about = (props: Props) => {
   return (
-    <div>about</div>
+    <div className='flex justify-center items-center font-bold text-4xl'>About</div>
   )
 }
 
