@@ -5,7 +5,7 @@ type Props = {}
 
 const NavBar = (props: Props) => {
   return (
-    <div className='bg-white shadow-xl mb-3  p-4 flex items-center justify-between'>
+    <div className='bg-white sticky top-0 shadow-xl mb-3  p-4 flex items-center justify-between'>
         <div className='flex space-x-3 ml-2'>
             <Link href='/'>Home</Link>
             <Link href='/store'>Store</Link>
